@@ -33,7 +33,7 @@ def log(msg):
 # STAGE 1 — LOAD RAW DATA
 # ─────────────────────────────────────────────────
 print("=" * 55)
-print("   ML PIPELINE — HOUSE PRICE MODEL")
+print("   HOUSE PRICE MODEL")
 print("=" * 55)
 
 log("STAGE 1: Loading raw data")

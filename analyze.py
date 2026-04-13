@@ -1,4 +1,3 @@
-cat > analyze.py << 'EOF'
 import pandas as pd
 import numpy as np
 import os
@@ -50,4 +49,3 @@ summary = df.groupby("category").agg(
 summary.to_csv(out_path, index=False)
 print(f"\nSummary saved to {out_path}")
 print("=" * 50)
-EOF

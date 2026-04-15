@@ -20,7 +20,7 @@ print(f"Ready — Languages: {VALID_LANGUAGES}")
 
 # ── APP ───────────────────────────────────────────
 app = FastAPI(
-    title="🎬 Movie Rating Prediction API",
+    title="Movie Rating Prediction API",
     description="Predict how much a user will enjoy a movie — like Netflix does",
     version="1.0.0"
 )
@@ -56,11 +56,11 @@ class RatingRequest(BaseModel):
 
 # ── HELPER ────────────────────────────────────────
 def rating_to_verdict(rating: float) -> str:
-    if rating >= 8.5: return "You'll absolutely love it!"
-    if rating >= 7.5: return "You'll really enjoy this"
-    if rating >= 6.5: return "Worth watching"
-    if rating >= 5.0: return "It's okay, your call"
-    return "Probably skip this one"
+    if rating >= 8.5: return " You'll absolutely love it!"
+    if rating >= 7.5: return " You'll really enjoy this"
+    if rating >= 6.5: return " Worth watching"
+    if rating >= 5.0: return " It's okay, your call"
+    return " Probably skip this one"
 
 # ── ROUTES ────────────────────────────────────────
 @app.get("/")
@@ -138,16 +138,34 @@ def recommend(user_age: int, fav_genre: str, fav_language: str):
     """Score all movies in catalogue for this user and rank them"""
 
     catalogue = [
-        ("Inception",        "Sci-Fi",   "English", 2010, 148, 8.8),
-        ("The Dark Knight",  "Action",   "English", 2008, 152, 9.0),
-        ("Parasite",         "Thriller", "Korean",  2019, 132, 8.6),
-        ("3 Idiots",         "Comedy",   "Hindi",   2009, 170, 8.4),
-        ("Interstellar",     "Sci-Fi",   "English", 2014, 169, 8.6),
-        ("Dangal",           "Drama",    "Hindi",   2016, 161, 8.3),
-        ("The Godfather",    "Drama",    "English", 1972, 175, 9.2),
-        ("Spirited Away",    "Fantasy",  "Japanese",2001, 125, 8.6),
-        ("Pulp Fiction",     "Thriller", "English", 1994, 154, 8.9),
-        ("RRR",              "Action",   "Telugu",  2022, 187, 7.8),
+        ("The Dark Knight",    "Action",   "English", 2008, 152, 9.0),
+        ("Inception",          "Sci-Fi",   "English", 2010, 148, 8.8),
+        ("Interstellar",       "Sci-Fi",   "English", 2014, 169, 8.6),
+        ("Pulp Fiction",       "Thriller", "English", 1994, 154, 8.9),
+        ("The Godfather",      "Drama",    "English", 1972, 175, 9.2),
+        ("Whiplash",           "Drama",    "English", 2014, 107, 8.5),
+        ("The Matrix",         "Sci-Fi",   "English", 1999, 136, 8.7),
+        ("Avengers Endgame",   "Action",   "English", 2019, 181, 8.4),
+        # Hindi movies
+        ("Sholay",             "Action",   "Hindi",   1975, 204, 8.1),
+        ("Dangal",             "Drama",    "Hindi",   2016, 161, 8.3),
+        ("3 Idiots",           "Comedy",   "Hindi",   2009, 170, 8.4),
+        ("PK",                 "Comedy",   "Hindi",   2014, 153, 8.1),
+        ("Zindagi Na Milegi",  "Drama",    "Hindi",   2011, 155, 8.2),
+        ("Taare Zameen Par",   "Drama",    "Hindi",   2007, 162, 8.5),
+        ("War",                "Action",   "Hindi",   2019, 154, 5.1),
+        ("Pathaan",            "Action",   "Hindi",   2023, 146, 5.9),
+        ("Bhaag Milkha Bhaag", "Drama",    "Hindi",   2013, 186, 8.2),
+        ("Dil Chahta Hai",     "Comedy",   "Hindi",   2001, 183, 8.1),
+        # Korean
+        ("Parasite",           "Thriller", "Korean",  2019, 132, 8.6),
+        ("Oldboy",             "Thriller", "Korean",  2003, 120, 8.1),
+        # Japanese
+        ("Spirited Away",      "Fantasy",  "Japanese",2001, 125, 8.6),
+        ("Your Name",          "Fantasy",  "Japanese",2016, 106, 8.4),
+        # Telugu
+        ("Baahubali 2",        "Action",   "Telugu",  2017, 167, 8.2),
+        ("RRR",                "Action",   "Telugu",  2022, 187, 7.8),
     ]
 
     results = []

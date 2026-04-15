@@ -1,4 +1,3 @@
-cat > train_and_save.py << 'PYEOF'
 import joblib
 import numpy as np
 import pandas as pd
@@ -180,4 +179,3 @@ joblib.dump(le_lang,  "le_lang.pkl")
 joblib.dump(le_fav_g, "le_fav_genre.pkl")
 joblib.dump(le_fav_l, "le_fav_lang.pkl")
 print("\nAll files saved. API ready!")
-PYEOF

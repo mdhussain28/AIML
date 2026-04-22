@@ -33,7 +33,15 @@ spec:
 
   - name: log-forwarder
     image: busybox
-    command: ["sh", "-c", "tail -f /logs/chat.log 2>/dev/null || (sleep 5 && tail -f /logs/chat.log)"]
+    command: ["sh", "-c"]
+    args:
+    - |
+      echo "Waiting for log file..."
+      until [ -f /logs/chat.log ]; do
+        sleep 2
+      done
+      echo "Log file found, starting tail..."
+      tail -f /logs/chat.log
     volumeMounts:
     - name: log-volume
       mountPath: /logs

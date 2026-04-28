@@ -14,11 +14,11 @@ spec:
           exact: beta
     route:
     - destination:
-        host: chat-service
+        host: chat-service-v2
         subset: v2
       weight: 100
   - route:
     - destination:
-        host: chat-service
+        host: chat-service-v1
         subset: v1
       weight: 100

@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: chat-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: chat-api
@@ -38,6 +38,7 @@ spec:
           def health():
               return {"status": "ok", "pod": socket.gethostname()}
           EOF
+          sleep 10
           cd /app && uvicorn main:app --host 0.0.0.0 --port 8000
         ports:
         - containerPort: 8000

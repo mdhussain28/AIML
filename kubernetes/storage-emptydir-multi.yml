@@ -35,18 +35,6 @@ spec:
           mountPath: /shared/logs
         - name: model-storage
           mountPath: /model
-        readinessProbe:
-          httpGet:
-            path: /health
-            port: 8000
-          initialDelaySeconds: 5
-          periodSeconds: 5
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 8000
-          initialDelaySeconds: 10
-          periodSeconds: 10
       - name: risk-api
         image: hussain2844/risk-api:v1
         ports:
@@ -63,18 +51,19 @@ spec:
           mountPath: /shared/logs
         - name: model-storage
           mountPath: /model
-        readinessProbe:
-          httpGet:
-            path: /health
-            port: 8001
-          initialDelaySeconds: 5
-          periodSeconds: 5
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 8001
-          initialDelaySeconds: 10
-          periodSeconds: 10
+      - name: log-reader
+        image: busybox
+        command: ["sh", "-c"]
+        args:
+        - |
+          while true; do
+            echo "=== Chat Logs ===" && cat /logs/chat.log 2>/dev/null || echo "no chat logs yet"
+            echo "=== Risk Logs ===" && cat /logs/risk.log 2>/dev/null || echo "no risk logs yet"
+            sleep 10
+          done
+        volumeMounts:
+        - name: shared-logs
+          mountPath: /logs
       volumes:
       - name: shared-logs
         emptyDir: {}

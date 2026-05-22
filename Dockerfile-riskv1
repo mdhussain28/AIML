@@ -1,0 +1,40 @@
+# Use slim Python base
+FROM python:3.11-slim
+
+# Set working directory
+WORKDIR /app
+
+# Install dependencies
+RUN pip install --no-cache-dir fastapi uvicorn
+
+# Create application file
+RUN cat <<EOF > /app/main.py
+from fastapi import FastAPI
+import random, socket, time
+
+app = FastAPI()
+
+@app.get("/risk")
+def score(message: str = ""):
+    # Simulate CPU work
+    start = time.time()
+    total = sum(i*i for i in range(10000))
+    keywords = ["lost", "stolen", "fraud", "unauthorized"]
+    score = round(min(0.95, sum(0.2 for k in keywords if k in message.lower()) + random.uniform(0.1, 0.3)), 2)
+    return {
+        "risk_score": score,
+        "flag": "high_risk" if score > 0.6 else "low_risk",
+        "served_by": socket.gethostname(),
+        "processing_ms": round((time.time() - start) * 1000, 2)
+    }
+
+@app.get("/health")
+def health():
+    return {"status": "ok", "pod": socket.gethostname()}
+EOF
+
+# Expose port
+EXPOSE 8001
+
+# Start app
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8001"]

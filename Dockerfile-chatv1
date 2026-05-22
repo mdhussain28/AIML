@@ -1,0 +1,34 @@
+# Use slim Python base
+FROM python:3.11-slim
+
+# Set working directory
+WORKDIR /app
+
+# Install dependencies
+RUN pip install --no-cache-dir fastapi uvicorn
+
+# Create application file
+RUN cat <<EOF > /app/main.py
+from fastapi import FastAPI
+import socket
+
+app = FastAPI()
+
+@app.get("/chat")
+def chat(message: str = "hello"):
+    return {
+        "reply": f"Hi! I am your upgraded AI support assistant. You asked: {message}",
+        "version": "v2",
+        "served_by": socket.gethostname()
+    }
+
+@app.get("/health")
+def health():
+    return {"status": "ok", "version": "v2"}
+EOF
+
+# Expose port
+EXPOSE 8000
+
+# Start app
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

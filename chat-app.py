@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 import requests, socket, os, json, datetime
-
 app = FastAPI()
 
 PROMPT    = os.getenv("SYSTEM_PROMPT", "You are a banking support assistant.")

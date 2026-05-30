@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: chat-api
-        image: hussain2844/chat:v3
+        image: hussain2844/chat:v4
         imagePullPolicy: Always
         ports:
         - containerPort: 8000

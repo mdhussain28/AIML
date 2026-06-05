@@ -1,0 +1,146 @@
+[
+  {
+    "category": "lost_card",
+    "keywords": ["lost card","debit card lost","credit card lost","card missing","lost my card","lost debit card","lost credit card","my debit card is lost","i lost my debit card"],
+    "answer": "For lost or stolen cards, please visit your nearest branch immediately or call our 24x7 helpline to block your card.",
+    "branch_only": true
+  },
+  {
+    "category": "fraud",
+    "keywords": ["fraud","fraudulent transaction","unauthorized transaction","suspicious transaction","fraud alert","money debited","unknown transaction"],
+    "answer": "For fraudulent or unauthorized transactions, please visit your nearest branch immediately with your account details. Do NOT share OTP or card details with anyone.",
+    "branch_only": true
+  },
+  {
+    "category": "blocked_account",
+    "keywords": ["account blocked","blocked account","locked account","account locked","my account is blocked","account has been blocked"],
+    "answer": "For a blocked or locked account, please visit your nearest branch with a valid photo ID for verification and reactivation. This cannot be resolved remotely.",
+    "branch_only": true
+  },
+  {
+    "category": "blocked",
+    "keywords": ["blocked"],
+    "answer": "For any blocked service or account, please visit your nearest branch with valid ID proof.",
+    "branch_only": true
+  },
+  {
+    "category": "balance",
+    "keywords": ["balance","account balance","check balance","available balance"],
+    "answer": "You can check your account balance through mobile banking, internet banking, ATM, or passbook.",
+    "use_llm": true
+  },
+  {
+    "category": "statement",
+    "keywords": ["statement","account statement","bank statement","mini statement"],
+    "answer": "Account statements can be downloaded from internet banking or mobile banking.",
+    "use_llm": true
+  },
+  {
+    "category": "pin_reset",
+    "keywords": ["pin reset","reset pin","forgot pin","atm pin"],
+    "answer": "ATM PIN can be reset through internet banking, mobile banking, or supported ATMs.",
+    "use_llm": true
+  },
+  {
+    "category": "atm_issue",
+    "keywords": ["atm issue","atm problem","cash not dispensed","atm error"],
+    "answer": "Please report the ATM location, date, and time so our support team can investigate.",
+    "use_llm": false
+  },
+  {
+    "category": "debit_card",
+    "keywords": ["what is debit card","explain debit card","debit card meaning"],
+    "answer": "Debit cards allow direct access to funds from your bank account.",
+    "use_llm": true
+  },
+  {
+    "category": "credit_card",
+    "keywords": ["what is credit card","explain credit card","credit card meaning"],
+    "answer": "Credit cards provide a credit limit that can be repaid monthly.",
+    "use_llm": true
+  },
+  {
+    "category": "upi",
+    "keywords": ["upi","what is upi","how does upi work","upi payment","upi transfer"],
+    "answer": "UPI (Unified Payments Interface) enables instant bank-to-bank transfers using mobile devices, 24x7.",
+    "use_llm": true
+  },
+  {
+    "category": "neft",
+    "keywords": ["neft","what is neft","neft transfer","neft payment"],
+    "answer": "NEFT (National Electronic Funds Transfer) is a nationwide electronic funds transfer system.",
+    "use_llm": true
+  },
+  {
+    "category": "rtgs",
+    "keywords": ["rtgs","what is rtgs","rtgs transfer"],
+    "answer": "RTGS (Real Time Gross Settlement) enables real-time high-value fund transfers.",
+    "use_llm": true
+  },
+  {
+    "category": "imps",
+    "keywords": ["imps","what is imps","imps transfer"],
+    "answer": "IMPS (Immediate Payment Service) provides instant 24x7 interbank fund transfers.",
+    "use_llm": true
+  },
+  {
+    "category": "fixed_deposit",
+    "keywords": ["fixed deposit","fd","what is fd","how does fd work"],
+    "answer": "Fixed Deposits provide guaranteed returns for a fixed tenure.",
+    "use_llm": true
+  },
+  {
+    "category": "savings_account",
+    "keywords": ["savings account","what is savings account"],
+    "answer": "Savings accounts help customers save money while earning interest.",
+    "use_llm": true
+  },
+  {
+    "category": "current_account",
+    "keywords": ["current account","what is current account"],
+    "answer": "Current accounts are designed for businesses and high transaction volumes.",
+    "use_llm": true
+  },
+  {
+    "category": "home_loan",
+    "keywords": ["home loan","mortgage","housing loan"],
+    "answer": "Home loans are available with flexible repayment options and competitive interest rates.",
+    "use_llm": true
+  },
+  {
+    "category": "personal_loan",
+    "keywords": ["personal loan","what is personal loan"],
+    "answer": "Personal loans can be used for various personal expenses subject to eligibility.",
+    "use_llm": true
+  },
+  {
+    "category": "education_loan",
+    "keywords": ["education loan","student loan"],
+    "answer": "Education loans help finance tuition fees and educational expenses.",
+    "use_llm": true
+  },
+  {
+    "category": "interest_rate",
+    "keywords": ["interest rate","loan rate","fd rate"],
+    "answer": "Current interest rates vary by product and tenure. Please contact customer support for the latest rates.",
+    "use_llm": true
+  },
+  {
+    "category": "cheque_book",
+    "keywords": ["cheque book","check book"],
+    "answer": "Cheque books can be requested through internet banking, mobile banking, or branch visits.",
+    "use_llm": true
+  },
+  {
+    "category": "branch_locator",
+    "keywords": ["branch","nearest branch","branch locator","where is branch"],
+    "answer": "You can locate your nearest branch using the bank website or mobile app.",
+    "use_llm": false
+  },
+  {
+    "category": "customer_support",
+    "keywords": ["customer care","support","help desk"],
+    "answer": "Customer support is available through phone, branch, internet banking, and mobile banking channels.",
+    "use_llm": false
+  }
+]
